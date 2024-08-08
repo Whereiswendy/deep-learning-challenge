@@ -1,10 +1,10 @@
-# Predicting Successful Funding Applicants with Deep Learning - deep-learning-challenge
+# Predicting Successful Funding Applicants with Deep Learning
 Create a binary classifier using deep learning to predict the success of applicants funded by Alphabet Soup based on their provided dataset.
 
 [Placeholder - Insert project report here]
 
 ---
-**Appendix 1.** Instructions provided by University of Western Australia and 2024 edX Boot Camps LLC
+***Appendix 1.** Instructions provided by University of Western Australia and 2024 edX Boot Camps LLC*
 
 ---
 > ### Background
