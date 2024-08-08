@@ -5,6 +5,7 @@ Create a binary classifier using deep learning to predict the success of applica
 
 ---
 **Appendix 1.** Instructions provided by University of Western Australia and 2024 edX Boot Camps LLC
+
 ---
 > ### Background
 > 
