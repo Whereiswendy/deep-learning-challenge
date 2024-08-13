@@ -54,9 +54,10 @@ After training and hyperparameter tuning, the final model achieved an accuracy o
 #### **Conclusion**
 The project successfully developed a deep learning model that predicts the success of funding applications with a reasonable level of accuracy. The model's performance was enhanced by carefully selecting relevant features and optimising the neural network's architecture. Future improvements could include experimenting with different feature engineering approaches, trying alternative model architectures, or employing more advanced hyperparameter optimisation techniques.
 
-**Model Artifacts**: The optimised model has been saved as `AlphabetSoupCharity_Optimised.h5` and can be reused for predictions or further tuning.
+>**Model Artifacts**: The optimised model has been saved as `AlphabetSoupCharity_Optimised.h5` and can be reused for predictions or further >tuning.
 
-#### Project Structure
+---
+#### **Project Structure**
 
 This repository contains the following structure:
 
