@@ -6,7 +6,7 @@ The goal of this project was to create a binary classification model using deep 
 #### **Data Preprocessing**
 
 - **Target Variable**: `IS_SUCCESSFUL` was used as the target variable.
-- **Feature Variables**: The features included application type, affiliation, classification, use case, organization type, status, income amount, special considerations, and ask amount.
+- **Feature Variables**: The features included application type, affiliation, classification, use case, organisation type, status, income amount, special considerations, and ask amount.
 - **Removed Variables**: Non-predictive columns `EIN` and `NAME` were dropped.
 
 #### **Feature Selection**
