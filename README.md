@@ -1,15 +1,15 @@
-### **Predicting Successful Funding Applicants with Deep Learning**
+# **Predicting Successful Funding Applicants with Deep Learning**
 
-#### **Objective**
+## **Objective**
 The goal of this project was to create a binary classification model using deep learning techniques to predict the success of applicants funded by Alphabet Soup. The dataset provided included various features about the organisations, such as application type, affiliation, classification, income, and the target variable, `IS_SUCCESSFUL`, which indicates the success of the funding.
 
-#### **Data Preprocessing**
+## **Data Preprocessing**
 
 - **Target Variable**: `IS_SUCCESSFUL` was used as the target variable.
 - **Feature Variables**: The features included application type, affiliation, classification, use case, organisation type, status, income amount, special considerations, and ask amount.
 - **Removed Variables**: Non-predictive columns `EIN` and `NAME` were dropped.
 
-#### **Feature Selection**
+## **Feature Selection**
 To focus on the most impactful features, a correlation analysis was conducted with the target variable. A threshold of 0.05 was used to select features with significant correlations:
 
 **Selected Features**:
@@ -33,7 +33,7 @@ To focus on the most impactful features, a correlation analysis was conducted wi
 
 These 17 features were selected based on their correlation with `IS_SUCCESSFUL` and were used in the final model to ensure it focused on relevant predictors.
 
-#### **Model Development**
+## **Model Development**
 
 A deep neural network was constructed with the following architecture:
 
@@ -48,20 +48,20 @@ A deep neural network was constructed with the following architecture:
   
 The model was optimised using the `rmsprop` optimiser, and early stopping was implemented to prevent overfitting.
 
-#### **Model Performance**
+## **Model Performance**
 After training and hyperparameter tuning, the final model achieved an accuracy of 72.3% on the test data, indicating a reasonably effective model for predicting the success of funding applications. The model's architecture was fine-tuned using Keras Tuner, and the use of the `tanh` activation function across the layers was a key factor in its performance.
 
-#### **Conclusion**
+## **Conclusion**
 The project successfully developed a deep learning model that predicts the success of funding applications with a reasonable level of accuracy. The model's performance was enhanced by carefully selecting relevant features and optimising the neural network's architecture. Future improvements could include experimenting with different feature engineering approaches, trying alternative model architectures, or employing more advanced hyperparameter optimisation techniques.
 
 >**Model Artifacts**: The optimised model has been saved as `AlphabetSoupCharity_Optimised.h5` and can be reused for predictions or further tuning.
 
 ---
-#### **Project Structure**
+## **Project Structure**
 
 This repository contains the following structure:
 
-Root Directory
+**Root Directory**
 
 |--- alphabet_soup_charity_model_dev.ipynb: Jupyter Notebook containing the main analysis and model development.
 
