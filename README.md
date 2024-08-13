@@ -87,7 +87,8 @@ This folder contains all the trials and related data from the hyperparameter opt
 
 
 ---
-**Appendix 1.** Instructions provided by University of Western Australia and 2024 edX Boot Camps LLC
+***Appendix 1.** Instructions provided by University of Western Australia and 2024 edX Boot Camps LLC*
+
 ---
 > ### Background
 > 
