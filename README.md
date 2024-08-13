@@ -4,13 +4,13 @@
 
 ### **Purpose of the Analysis**
 
-The goal of this analysis is to develop a binary classification model using deep learning techniques to predict the success of applicants for funding from the non-profit foundation, Alphabet Soup. The dataset provided includes metadata about each organization, such as application type, affiliation, classification, use case, organization type, and income amount. By accurately predicting whether an applicant will be successful, Alphabet Soup can make informed decisions about future funding allocations.
+The goal of this analysis is to develop a binary classification model using deep learning techniques to predict the success of applicants for funding from the non-profit foundation, Alphabet Soup. The dataset provided includes metadata about each organisation, such as application type, affiliation, classification, use case, organization type, and income amount. By accurately predicting whether an applicant will be successful, Alphabet Soup can make informed decisions about future funding allocations.
 
 ## **Data Pre-processing**
 
 ### **Initial Data Review**
 
-The dataset contains information on over 34,000 organizations that have received funding from Alphabet Soup. Key variables include:
+The dataset contains information on over 34,000 organisations that have received funding from Alphabet Soup. Key variables include:
 
 - **Target Variable:** `IS_SUCCESSFUL` (1: Funding was successful, 0: Funding was not successful)
 - **Feature Variables:** Application type, affiliation, classification, use case, organization type, income amount, special considerations, and ask amount.
@@ -35,9 +35,9 @@ The dataset contains information on over 34,000 organizations that have received
 ### **Results of Initial Model**
 
 - **Accuracy:** The initial model achieved an accuracy of approximately 72% on the test set.
-- **Overfitting:** The validation loss diverged from the training loss over epochs, indicating potential overfitting.
+- **Overfitting:** The validation loss diverged from the training loss over epochs, indicating potential overfitting. The overall loss was 0.567.
 
-## **Model Optimization**
+## **Model Optimisation**
 
 ### **Hyperparameter Tuning**
 
@@ -61,8 +61,8 @@ The best model identified through hyperparameter tuning included:
 
 ### **Final Model Performance**
 
-- **Accuracy:** The optimized model achieved an accuracy of 72% on the test set, with a slight improvement over the initial model.
-- **Loss:** The final loss was `X.XXXX`, indicating better generalization to the validation data.
+- **Accuracy:** The optimised model achieved an accuracy of 72% on the test set, only a very slight improvement over the initial model.
+- **Loss:** The final loss was also only slighly better at `0.564`, indicating better generalisation to the validation data.
 
 ### **Result Summary**
 
