@@ -1,7 +1,90 @@
-# Predicting Successful Funding Applicants with Deep Learning - deep-learning-challenge
-Create a binary classifier using deep learning to predict the success of applicants funded by Alphabet Soup based on their provided dataset.
+### **Predicting Successful Funding Applicants with Deep Learning**
 
-[Placeholder - Insert project report here]
+#### **Objective**
+The goal of this project was to create a binary classification model using deep learning techniques to predict the success of applicants funded by Alphabet Soup. The dataset provided included various features about the organisations, such as application type, affiliation, classification, income, and the target variable, `IS_SUCCESSFUL`, which indicates the success of the funding.
+
+#### **Data Preprocessing**
+
+- **Target Variable**: `IS_SUCCESSFUL` was used as the target variable.
+- **Feature Variables**: The features included application type, affiliation, classification, use case, organization type, status, income amount, special considerations, and ask amount.
+- **Removed Variables**: Non-predictive columns `EIN` and `NAME` were dropped.
+
+#### **Feature Selection**
+To focus on the 17 most impactful features, a correlation analysis was conducted with the target variable. A threshold of 0.05 was used to select features with significant correlations:
+
+**Selected Features**:
+- 'AFFILIATION_Independent'
+- 'ORGANIZATION_Trust'
+- 'CLASSIFICATION_C7000'
+- 'APPLICATION_TYPE_T5'
+- 'APPLICATION_TYPE_T10'
+- 'APPLICATION_TYPE_T6'
+- 'INCOME_AMT_1-9999'
+- 'CLASSIFICATION_C1000'
+- 'CLASSIFICATION_Other'
+- 'ORGANIZATION_Co-operative'
+- 'INCOME_AMT_0'
+- 'CLASSIFICATION_C1200'
+- 'APPLICATION_TYPE_T4'
+- 'APPLICATION_TYPE_T19'
+- 'CLASSIFICATION_C2100'
+- 'ORGANIZATION_Association'
+- 'AFFILIATION_CompanySponsored'
+
+These features were selected based on their correlation with `IS_SUCCESSFUL` and were used in the final model to ensure it focused on relevant predictors.
+
+#### **Model Development**
+
+A deep neural network was constructed with the following architecture:
+
+- **Input Layer**: Based on the selected features (n=17).
+- **Hidden Layers**: 
+  - 1st Hidden Layer: 96 units, `tanh` activation
+  - 2nd Hidden Layer: 112 units, `tanh` activation
+  - 3rd Hidden Layer: 64 units, `tanh` activation
+  - 4th Hidden Layer: 96 units, `tanh` activation
+- **Regularization**: Dropout layer with a 10% dropout rate.
+- **Output Layer**: A single unit with a `sigmoid` activation for binary classification.
+  
+The model was optimised using the `rmsprop` optimiser, and early stopping was implemented to prevent overfitting.
+
+#### **Model Performance**
+After training and hyperparameter tuning, the final model achieved an accuracy of 72.3% on the test data, indicating a reasonably effective model for predicting the success of funding applications. The model's architecture was fine-tuned using Keras Tuner, and the use of the `tanh` activation function across the layers was a key factor in its performance.
+
+#### **Conclusion**
+The project successfully developed a deep learning model that predicts the success of funding applications with a reasonable level of accuracy. The model's performance was enhanced by carefully selecting relevant features and optimizing the neural network's architecture. Future improvements could include experimenting with different feature engineering approaches, trying alternative model architectures, or employing more advanced hyperparameter optimisation techniques.
+
+**Model Artifacts**: The optimised model has been saved as `AlphabetSoupCharity_Optimised.h5` and can be reused for predictions or further tuning.
+
+#### Project Structure
+
+This repository contains the following structure:
+
+**Root Directory**
+- **alphabet_soup_charity_model_dev.ipynb**: Jupyter Notebook containing the main analysis and model development.
+- **AlphabetSoupCharity_Optimised.h5**: The saved HDF5 model of the optimized neural network.
+- **correlations_with_target.csv**: CSV file containing the correlations of features with the target variable `IS_SUCCESSFUL`.
+- **file_list.txt**: A list of all files and directories in this project.
+- **README.md**: This file, containing the documentation and overview of the project.
+- **Starter_Code/**: Directory containing the starter Jupyter Notebook for the project.
+- **my_dir/**: Directory containing the Keras Tuner's output from hyperparameter optimization.
+
+##### hyperparameter_optimization/
+This folder contains all the trials and related data from the hyperparameter optimisation process. Each trial has its own directory, which includes the model checkpoints and a `trial.json` file describing the trial's details.
+
+- **oracle.json**: File containing the overall state of the hyperparameter search.
+- **tuner0.json**: File containing the state of the tuner.
+
+##### Example of a trial directory structure (e.g., trial_0000):
+- **checkpoint**: The checkpoint file containing the model weights at this trial.
+- **checkpoint.data-00000-of-00001**: Part of the checkpoint data.
+- **checkpoint.index**: Index file for the checkpoint data.
+- **trial.json**: JSON file containing the details of this trial, such as the hyperparameters and results.
+
+---
+
+**Note:** The directories `my_dir/` and its subdirectories contain a large number of trials, each of which was generated during the hyperparameter optimisation process. Only a few key files and directories are described here for brevity. For detailed trial results, refer to the specific trial directories.
+
 
 ---
 **Appendix 1.** Instructions provided by University of Western Australia and 2024 edX Boot Camps LLC
