@@ -26,10 +26,11 @@ The dataset contains information on over 34,000 organisations that have received
 ### **Initial Model Architecture**
 
 - **Architecture:** The initial model was constructed using a deep neural network with the following layers:
-  - **Input Layer:** 80 units with ReLU activation
-  - **Hidden Layer 1:** 30 units with ReLU activation
+  - **Input Layer:** 17 units (corresponding to 17 input features)
+  - **First Hidden Layer:** 80 units with ReLU activation
+  - **Second Hidden Layer:** 30 units with ReLU activation
   - **Output Layer:** 1 unit with Sigmoid activation
-- **Compilation:** The model was compiled using the Adam optimizer and binary cross-entropy loss function.
+- **Compilation:** The model was compiled using the Adam optimiser and binary cross-entropy loss function.
 - **Training:** The model was trained for 100 epochs, with the training and validation loss and accuracy monitored to assess performance.
 
 ### **Results of Initial Model**
