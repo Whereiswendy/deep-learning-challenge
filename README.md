@@ -10,7 +10,7 @@ The goal of this project was to create a binary classification model using deep 
 - **Removed Variables**: Non-predictive columns `EIN` and `NAME` were dropped.
 
 #### **Feature Selection**
-To focus on the 17 most impactful features, a correlation analysis was conducted with the target variable. A threshold of 0.05 was used to select features with significant correlations:
+To focus on the most impactful features, a correlation analysis was conducted with the target variable. A threshold of 0.05 was used to select features with significant correlations:
 
 **Selected Features**:
 - 'AFFILIATION_Independent'
@@ -31,7 +31,7 @@ To focus on the 17 most impactful features, a correlation analysis was conducted
 - 'ORGANIZATION_Association'
 - 'AFFILIATION_CompanySponsored'
 
-These features were selected based on their correlation with `IS_SUCCESSFUL` and were used in the final model to ensure it focused on relevant predictors.
+These 17 features were selected based on their correlation with `IS_SUCCESSFUL` and were used in the final model to ensure it focused on relevant predictors.
 
 #### **Model Development**
 
@@ -52,7 +52,7 @@ The model was optimised using the `rmsprop` optimiser, and early stopping was im
 After training and hyperparameter tuning, the final model achieved an accuracy of 72.3% on the test data, indicating a reasonably effective model for predicting the success of funding applications. The model's architecture was fine-tuned using Keras Tuner, and the use of the `tanh` activation function across the layers was a key factor in its performance.
 
 #### **Conclusion**
-The project successfully developed a deep learning model that predicts the success of funding applications with a reasonable level of accuracy. The model's performance was enhanced by carefully selecting relevant features and optimizing the neural network's architecture. Future improvements could include experimenting with different feature engineering approaches, trying alternative model architectures, or employing more advanced hyperparameter optimisation techniques.
+The project successfully developed a deep learning model that predicts the success of funding applications with a reasonable level of accuracy. The model's performance was enhanced by carefully selecting relevant features and optimising the neural network's architecture. Future improvements could include experimenting with different feature engineering approaches, trying alternative model architectures, or employing more advanced hyperparameter optimisation techniques.
 
 **Model Artifacts**: The optimised model has been saved as `AlphabetSoupCharity_Optimised.h5` and can be reused for predictions or further tuning.
 
