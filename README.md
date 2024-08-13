@@ -62,24 +62,43 @@ The project successfully developed a deep learning model that predicts the succe
 This repository contains the following structure:
 
 Root Directory
+
 |--- alphabet_soup_charity_model_dev.ipynb: Jupyter Notebook containing the main analysis and model development.
+
 |--- AlphabetSoupCharity_Optimised.h5: The saved HDF5 model of the optimized neural network.
+
 |--- correlations_with_target.csv: CSV file containing the correlations of features with the target variable IS_SUCCESSFUL.
+
 |--- file_list.txt: A list of all files and directories in this project.
+
 |--- README.md: This file, containing the documentation and overview of the project.
+
 |--- Starter_Code/: Directory containing the starter Jupyter Notebook for the project.
+
 |--- my_dir/: Directory containing the Keras Tuner's output from hyperparameter optimization.
+     
      |--- hyperparameter_optimization/
+          
           |--- oracle.json: File containing the overall state of the hyperparameter search.
+          
           |--- tuner0.json: File containing the state of the tuner.
+          
           |--- trial_0000/
+               
                |--- checkpoint: The checkpoint file containing the model weights at this trial.
+               
                |--- checkpoint.data-00000-of-00001: Part of the checkpoint data.
+              
                |--- checkpoint.index: Index file for the checkpoint data.
+               
                |--- trial.json: JSON file containing the details of this trial, such as the hyperparameters and results.
+          
           |--- trial_0001/
+          
           |--- trial_0002/
+          
           |--- ...
+
 
 **Note:** The directories `my_dir/` and its subdirectories contain a large number of trials, each of which was generated during the hyperparameter optimisation process. Only a few key files and directories are described here for brevity. For detailed trial results, refer to the specific trial directories.
 
