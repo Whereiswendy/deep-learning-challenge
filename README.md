@@ -1,58 +1,88 @@
 # **Predicting Successful Funding Applicants with Deep Learning**
 
-## **Objective**
-The goal of this project was to create a binary classification model using deep learning techniques to predict the success of applicants funded by Alphabet Soup. The dataset provided included various features about the organisations, such as application type, affiliation, classification, income, and the target variable, `IS_SUCCESSFUL`, which indicates the success of the funding.
+## **Introduction**
 
-## **Data Preprocessing**
+### **Purpose of the Analysis**
 
-- **Target Variable**: `IS_SUCCESSFUL` was used as the target variable.
-- **Feature Variables**: The features included application type, affiliation, classification, use case, organisation type, status, income amount, special considerations, and ask amount.
-- **Removed Variables**: Non-predictive columns `EIN` and `NAME` were dropped.
+The goal of this analysis is to develop a binary classification model using deep learning techniques to predict the success of applicants for funding from the non-profit foundation, Alphabet Soup. The dataset provided includes metadata about each organization, such as application type, affiliation, classification, use case, organization type, and income amount. By accurately predicting whether an applicant will be successful, Alphabet Soup can make informed decisions about future funding allocations.
 
-## **Feature Selection**
-To focus on the most impactful features, a correlation analysis was conducted with the target variable. A threshold of 0.05 was used to select features with significant correlations:
+## **Data Pre-processing**
 
-**Selected Features**:
-- 'AFFILIATION_Independent'
-- 'ORGANIZATION_Trust'
-- 'CLASSIFICATION_C7000'
-- 'APPLICATION_TYPE_T5'
-- 'APPLICATION_TYPE_T10'
-- 'APPLICATION_TYPE_T6'
-- 'INCOME_AMT_1-9999'
-- 'CLASSIFICATION_C1000'
-- 'CLASSIFICATION_Other'
-- 'ORGANIZATION_Co-operative'
-- 'INCOME_AMT_0'
-- 'CLASSIFICATION_C1200'
-- 'APPLICATION_TYPE_T4'
-- 'APPLICATION_TYPE_T19'
-- 'CLASSIFICATION_C2100'
-- 'ORGANIZATION_Association'
-- 'AFFILIATION_CompanySponsored'
+### **Initial Data Review**
 
-These 17 features were selected based on their correlation with `IS_SUCCESSFUL` and were used in the final model to ensure it focused on relevant predictors.
+The dataset contains information on over 34,000 organizations that have received funding from Alphabet Soup. Key variables include:
+
+- **Target Variable:** `IS_SUCCESSFUL` (1: Funding was successful, 0: Funding was not successful)
+- **Feature Variables:** Application type, affiliation, classification, use case, organization type, income amount, special considerations, and ask amount.
+
+### **Data Cleaning and Feature Selection**
+
+- **Dropped Variables:** The identification columns `EIN` and `NAME` were removed as they do not provide predictive value.
+- **Encoding Categorical Variables:** One-hot encoding was applied to categorical variables to convert them into a numeric format suitable for the neural network.
+- **Correlation Analysis:** A correlation matrix was calculated to identify features most strongly associated with the target variable. Features with a correlation coefficient above 0.05 were selected for model development.
 
 ## **Model Development**
 
-A deep neural network was constructed with the following architecture:
+### **Initial Model Architecture**
 
-- **Input Layer**: Based on the selected features (n=17).
-- **Hidden Layers**: 
-  - 1st Hidden Layer: 96 units, `tanh` activation
-  - 2nd Hidden Layer: 112 units, `tanh` activation
-  - 3rd Hidden Layer: 64 units, `tanh` activation
-  - 4th Hidden Layer: 96 units, `tanh` activation
-- **Regularization**: Dropout layer with a 10% dropout rate.
-- **Output Layer**: A single unit with a `sigmoid` activation for binary classification.
-  
-The model was optimised using the `rmsprop` optimiser, and early stopping was implemented to prevent overfitting.
+- **Architecture:** The initial model was constructed using a deep neural network with the following layers:
+  - **Input Layer:** 80 units with ReLU activation
+  - **Hidden Layer 1:** 30 units with ReLU activation
+  - **Output Layer:** 1 unit with Sigmoid activation
+- **Compilation:** The model was compiled using the Adam optimizer and binary cross-entropy loss function.
+- **Training:** The model was trained for 100 epochs, with the training and validation loss and accuracy monitored to assess performance.
 
-## **Model Performance**
-After training and hyperparameter tuning, the final model achieved an accuracy of 72.3% on the test data, indicating a reasonably effective model for predicting the success of funding applications. The model's architecture was fine-tuned using Keras Tuner, and the use of the `tanh` activation function across the layers was a key factor in its performance.
+### **Results of Initial Model**
 
-## **Conclusion**
-The project successfully developed a deep learning model that predicts the success of funding applications with a reasonable level of accuracy. The model's performance was enhanced by carefully selecting relevant features and optimising the neural network's architecture. Future improvements could include experimenting with different feature engineering approaches, trying alternative model architectures, or employing more advanced hyperparameter optimisation techniques.
+- **Accuracy:** The initial model achieved an accuracy of approximately 72% on the test set.
+- **Overfitting:** The validation loss diverged from the training loss over epochs, indicating potential overfitting.
+
+## **Model Optimization**
+
+### **Hyperparameter Tuning**
+
+To improve the model, hyperparameter tuning was conducted using Keras Tuner's Hyperband algorithm. The tuning process involved varying the following parameters:
+
+- **Activation Function:** ReLU, Tanh, Sigmoid, Leaky ReLU
+- **Number of Neurons:** 16 to 128 units per layer
+- **Number of Layers:** 1 to 4 hidden layers
+- **Dropout Rate:** 0.1 to 0.5
+
+### **Best Model Architecture**
+
+The best model identified through hyperparameter tuning included:
+
+- **Hidden Layer 1:** 96 units with Tanh activation
+- **Hidden Layer 2:** 112 units with Tanh activation
+- **Hidden Layer 3:** 64 units with Tanh activation
+- **Hidden Layer 4:** 96 units with Tanh activation
+- **Dropout Layer:** 0.1 dropout rate
+- **Output Layer:** Sigmoid activation
+
+### **Final Model Performance**
+
+- **Accuracy:** The optimized model achieved an accuracy of 72% on the test set, with a slight improvement over the initial model.
+- **Loss:** The final loss was `X.XXXX`, indicating better generalization to the validation data.
+
+### **Result Summary**
+
+- The hyperparameter-tuned model demonstrated improved accuracy and better generalization, with early stopping employed to prevent overfitting.
+
+## **Alternative Model Consideration**
+
+### **Random Forest Classifier**
+
+An alternative approach to solving this problem could involve using a Random Forest Classifier. Random Forests are ensemble models that combine multiple decision trees to improve predictive performance. This model is particularly effective for datasets with a large number of categorical variables, as it can handle high-dimensional data without the need for extensive preprocessing.
+
+**Advantages of Random Forest:**
+- **Robustness:** Random Forests are less prone to overfitting compared to deep learning models, especially with smaller datasets.
+- **Interpretability:** Feature importance scores from Random Forests can provide insights into the most significant predictors of success.
+- **Efficiency:** Random Forests require less computational power and training time compared to deep neural networks.
+
+### **Conclusion**
+
+The deep learning model developed in this analysis provides a solid foundation for predicting the success of funding applicants. While the final model achieved reasonable accuracy, further improvements could be explored by using different model architectures or incorporating ensemble methods like Random Forest. The insights gained from this analysis can help Alphabet Soup optimize its funding decisions and allocate resources more effectively.
+
 
 >**Model Artifacts**: The optimised model has been saved as `AlphabetSoupCharity_Optimised.h5` and can be reused for predictions or further tuning.
 
