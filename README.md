@@ -134,6 +134,7 @@ This repository contains the following structure:
 
 
 ---
+## Initial Instructions
 ***Appendix 1.** Instructions provided by University of Western Australia and 2024 edX Boot Camps LLC*
 
 ---
