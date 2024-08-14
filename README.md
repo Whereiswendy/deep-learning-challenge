@@ -106,8 +106,7 @@ This repository contains the following structure:
 
 |--- Starter_Code/: Directory containing the starter Jupyter Notebook for the project.
 
-|--- my_dir/: Directory containing the Keras Tuner's output from hyperparameter optimization.
-     
+|--- my_dir/: Directory containing the Keras Tuner's output from hyperparameter optimization.     
      |--- hyperparameter_optimization/
           
           |--- oracle.json: File containing the overall state of the hyperparameter search.
