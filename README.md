@@ -4,7 +4,7 @@
 
 ### **Purpose of the Analysis**
 
-The goal of this analysis is to develop a binary classification model using deep learning techniques to predict the success of applicants for funding from the non-profit foundation, Alphabet Soup. The dataset provided includes metadata about each organisation, such as application type, affiliation, classification, use case, organization type, and income amount. By accurately predicting whether an applicant will be successful, Alphabet Soup can make informed decisions about future funding allocations.
+The goal of this analysis is to develop a binary classification model using deep learning techniques to predict the success of applicants for funding from the non-profit foundation, Alphabet Soup. The dataset provided includes metadata about each organisation, such as application type, affiliation, classification, use case, organisation type, and income amount. By accurately predicting whether an applicant will be successful, Alphabet Soup can make informed decisions about future funding allocations.
 
 ## **Data Pre-processing**
 
@@ -13,13 +13,13 @@ The goal of this analysis is to develop a binary classification model using deep
 The dataset contains information on over 34,000 organisations that have received funding from Alphabet Soup. Key variables include:
 
 - **Target Variable:** `IS_SUCCESSFUL` (1: Funding was successful, 0: Funding was not successful)
-- **Feature Variables:** Application type, affiliation, classification, use case, organization type, income amount, special considerations, and ask amount.
+- **Feature Variables:** Application type, affiliation, classification, use case, organisation type, income amount, special considerations, and ask amount.
 
 ### **Data Cleaning and Feature Selection**
 
 - **Dropped Variables:** The identification columns `EIN` and `NAME` were removed as they do not provide predictive value.
 - **Encoding Categorical Variables:** One-hot encoding was applied to categorical variables to convert them into a numeric format suitable for the neural network.
-- **Correlation Analysis:** A correlation matrix was calculated to identify features most strongly associated with the target variable. Features with a correlation coefficient above 0.05 were selected for model development.
+- **Correlation Analysis:** A correlation matrix was calculated to identify features most strongly associated with the target variable. Seventeen features with a correlation coefficient above 0.05 were selected for model development. None of these were numerical, so no scaling was required. I have added in commented-out code for scaling though - should you wish to retain some of the oriinal numerial features.
 
 ## **Model Development**
 
@@ -67,7 +67,7 @@ The best model identified through hyperparameter tuning included:
 
 ### **Result Summary**
 
-- The hyperparameter-tuned model demonstrated improved accuracy and better generalization, with early stopping employed to prevent overfitting.
+- The hyperparameter-tuned model demonstrated improved accuracy and better generalisation, with early stopping employed to prevent overfitting.
 
 ## **Alternative Model Consideration**
 
